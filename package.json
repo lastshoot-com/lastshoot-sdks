@@ -1,0 +1,15 @@
+{
+  "name": "lastshoot-sdks",
+  "private": true,
+  "workspaces": [
+    "typescript",
+    "mcp"
+  ],
+  "scripts": {
+    "codegen": "python scripts/codegen.py",
+    "codegen:check": "python scripts/codegen.py --check",
+    "build": "npm run build -w @lastshoot/sdk && npm run build -w @lastshoot/mcp",
+    "test": "npm test -w @lastshoot/sdk && npm test -w @lastshoot/mcp",
+    "typecheck": "npm run typecheck -w @lastshoot/sdk && npm run typecheck -w @lastshoot/mcp"
+  }
+}

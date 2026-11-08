@@ -1,0 +1,68 @@
+{
+  "name": "@lastshoot/mcp",
+  "version": "0.1.1",
+  "description": "MCP server for the LastShoot AI product-photography API: try-on, product-to-model, backgrounds, edits, upscaling",
+  "license": "MIT",
+  "author": "LastShoot",
+  "homepage": "https://www.lastshoot.com",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "lastshoot",
+    "claude",
+    "cursor",
+    "ai",
+    "product photography",
+    "virtual try-on"
+  ],
+  "type": "module",
+  "bin": {
+    "lastshoot-mcp": "dist/index.js"
+  },
+  "main": "./dist/server.js",
+  "types": "./dist/server.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/server.d.ts",
+      "default": "./dist/server.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "dependencies": {
+    "@lastshoot/sdk": "^0.1.1",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lastshoot-com/lastshoot-sdks.git",
+    "directory": "mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/lastshoot-com/lastshoot-sdks/issues"
+  }
+}
